@@ -30,14 +30,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MovieCounter(modifier: Modifier = Modifier) {
-    val count = 0
+    var count by remember { mutableStateOf(0) }
     Column(
         modifier = modifier.padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "You have added $count movies.")
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { /* Acción del botón */ }) {
+        Button(onClick = { count++ }) {
             Text("Add Movie")
         }
     }
